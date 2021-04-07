@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>.button2 {
+    background-color: #60a8ec;
+    border-style: groove;
+    border-radius: 25px;
+    color: rgb(248, 245, 69);
+    padding: 4px 8px;
+    text-align: center;
+    text-decoration-style: wavy;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 1px;
+    cursor: pointer;
+    }
+    .button {
+  background-color: #8cf790;
+  border-style: groove;
+  border-radius: 50%;
+  color: rgb(204, 26, 26);
+  padding: 4px 8px;
+  text-align: center;
+  text-decoration: wavy;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 1px;
+ }</style>
+<a href="/index.html" class=button2>home</a>
+<a href="/about.html" class=button2>about</a>
+<a href="/contact.html" class=button2>contact me</a>
+<br>
+<style>
+    pre {
+        background-color: blanchedalmond;
+    }
+
+    b {
+        color: brown;
+    }
+</style>
+<br>
+<a href="/index.html" class="button">page-1</a>
+<br>
+<body style="background-image: ;">
+    <b>Q.6 groupAnagrams</b>
+    <br>
+    <pre>class Solution:
+        def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+            if len(strs)>0:
+                mylist={}
+                for i in range(len(strs)):
+                    a=''.join(sorted(strs[i]))
+                    if a in mylist:
+                        mylist[a].append(strs[i])
+                    else:
+                        mylist[a]=[strs[i]]
+                return(list(mylist.values()))</pre>
+    <b>Q.7 isPalindrome</b>
+    <br>
+    <pre>class Solution:
+        def isPalindrome(self, s: str) -> bool:
+            p=s.lower()
+            mylist=[]
+            integers=['0','1','2','3','4','5','6','7','8','9']
+            for i in range(len(s)):
+                if p[i] in integers:
+                    mylist.append(p[i])
+                elif ord(p[i])<=122 and ord(p[i])>=97:
+                    mylist.append(p[i])
+            if len(mylist)==0:
+                return True
+            for i in range(int(len(mylist)/2)):
+                if mylist[i]!=mylist[len(mylist)-1-i] :
+                    return False
+                else:
+                    continue
+            return True   </pre>
+    <b>Q.8 findMedianSortedArrays </b>
+    <br>
+    <pre>class Solution:
+                def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+                    for i in range(len(nums2)):
+                        nums1.append(nums2[i])
+                    nums1.sort()
+                    k=len(nums1)
+                    if k%2==0:
+                        return (nums1[int(k/2)]+nums1[int(k/2-1)])/2
+                    else:
+                        return nums1[int((k-1)/2)]</pre>
+    <b>Q.9 search-in-rotated</b>
+    <br>
+    <pre>class Solution:
+        def search(self, nums: List[int], target: int) -> int:
+            if nums[0] > target and nums[len(nums)-1] < target:
+                return -1
+            elif target in nums:
+                return(nums.index(target))
+            else :
+                return -1</pre>
+    <b>Q.10 insert</b>
+    <br>
+    <pre>def f(x):
+        return x[0]
+    class Solution:
+        def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
+            if len(intervals)==0:
+                return [newInterval]
+            for i in range(len(intervals)):
+                if newInterval[0] < = intervals[i][1] and newInterval[0] > = intervals[i][0] and newInterval[1]>intervals[i][1]:
+                    intervals[i]=[intervals[i][0],newInterval[1]]
+                    break
+                    
+                elif newInterval[1] < = intervals[i][1] and newInterval[1] > =intervals[i][0] and newInterval[0] < intervals[i][0]:
+                    intervals[i]=[newInterval[0],intervals[i][1]]
+                    break
+                else :
+                    if i==len(intervals)-1:
+                        intervals.append(newInterval)
+                    else:
+                        continue
+            intervals=sorted(intervals,key=f)
+            res=[]
+            curr=intervals[0]
+            for i in range(1,len(intervals)):
+                interval=intervals[i]
+                if curr[1] < interval[0]:
+                    res.append(curr)
+                    curr=interval
+                else:
+                    curr[1]=max(curr[1],interval[1])
+            res.append(curr)
+            return res </pre>
+
+</body>
+
+</html>

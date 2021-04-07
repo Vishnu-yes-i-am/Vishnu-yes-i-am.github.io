@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .button2 {
+  background-color: #60a8ec;
+  border-style: groove;
+  border-radius: 25px;
+  color: rgb(248, 245, 69);
+  padding: 4px 8px;
+  text-align: center;
+  text-decoration-style: wavy;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 1px;
+  cursor: pointer;
+  }
+  .box{
+      color: crimson;
+      text-decoration: underline;
+      text-align: center;
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+      position: relative;
+      background-color: aquamarine;
+      animation:  gumlebeta 30 ease 8s forwards;
+      transition: transform 1s;
+}
+    @keyframes gumlebeta {
+    0%{ top: 0px;
+        left:0px;
+        border-radius: 0%;
+        }
+    25%{
+        top:0px;
+        left:1000px;
+        background-color: dodgerblue;
+        border-radius: 50%;}
+    50%{ top: 300px;
+        left:1000px;
+        background-color: lightsalmon;
+        border-radius: 0%;
+        }
+    75%{ top: 300px;
+        left:0px;
+        background-color: darkslateblue;
+        border-radius: 50%;
+        }
+    100%{ top: 0px;
+        left:0px;
+        background-color: aquamarine;
+        border-radius: 0%;
+        }
+
+}
+.box:hover{
+    transform: scale(0.5);
+}
+.dabba{
+    background-color: chartreuse;
+    position: relative;
+  margin-left: 200px;
+    font-size: 100px;
+    text-align: center;
+    color: red;
+    width: 800px;
+    height: 100px;
+    transition: transform 4s ;
+
+   
+}
+.dabba:hover{
+    transform: rotate3d(1,2,3,360deg);
+}
+</style>
+<body>
+    <a href="/index.html" class=button2>home</a>
+    <a href="/about.html"class=button2>about</a>
+    <br>
+    <b style="color: blueviolet;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJcAAABVCAMAAABzYYb0AAAAhFBMVEX////08vLxQjbTLSn5ubbwLx/TKyf0/PzxOi306+r78PDRGxPxfXf0+fnxf3n09vbxNCX99vb86ejxg33QEAfoPDLxKBXxXVTxHQDYSUb2q6jxST3ywL7ylJDwPjH63Nv03tzyVErvtbPz09HjLCDxc2z0ycfx4+PxamPxjonbXlzcamhkewEbAAACD0lEQVRoge2YfXeCIBSHEyNoxWA5xWkyrWVr+/7fb2hC76vOTuDZuc9/Jefw7P7gXttgAAAAAAAAAAAA0DeeZk/3LJ/NHiVySJarfM6C2+BBoZR8d6D1niqkcKF3vAFWSoEQlQ68hhhphCyvl4yzBaXt6ruC/4sXonTIrpSMB1HSrnXphRCOxr+KsWUlkDuvhfFColpezpKzDCuz8sOF12tstlM4u5QlG6+sPxpNnHiFI7sjXo3PlozViJo1cRg68gpDWzKK6lMxzouky1A1Wk7qpc99HMcVMhsnxXGWbC1NhqLSf4QzL12maG0vG5brg5KxuTAZ6isbjkI3OW69ngmPTFEU3htLnJumhahYkNbLYb2mJCBdM9ckEe+yZGVum1ZTRw9ezTmyDvl2LJHMHHi0PXc+vAJOCpOZSjKiM1zZDGndrHDu9dzuGpB6l+WKL+0H/NnNKE9eejZ/muNPkb0IadY99ubVHKnUzsFOUJX2qes+MbU76yu4mzltoFO+a7Rezr1pWWyaWCuVLvYeecyxzXJushT54SD366Vfa7ZjKd2Qw2HpM8c2S7JJdROrj772Xa8my2UiT38k+a5XU7Jzr4ju3ydOHc7Rg3r1wgvqdZ9XX+vVVy/I8X94QY7/w6t/Oc4SpZS42WukmXw9XmswmMtKVptbvd40347+g/+iecRaAAAAAAAAAAAAQPMDptspmZDamW8AAAAASUVORK5CYII=" alt="e-mail"width=60px>:vishnumali3911@gmail.com</b>
+    <br>
+    <b style="color: coral;"><img src="data:image/jpeg;base64,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" alt="whatsapp"width=60px>:9680303395</b>
+
+    
+</body>
+<div class="box"> <pre>
+
+
+
+
+
+
+
+VISHNU MALI
+</pre>
+    </div>
+    <div class="dabba">C.S.S.</div>
+</html>
