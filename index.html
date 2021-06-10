@@ -8,37 +8,6 @@
 </head>
 <title>VISHNU MALI</title>
 <style>
-    .typewriter{
-  overflow: hidden; 
-  font-size: xx-large;
-  white-space:nowrap;
-  animation-name: typing;
-  animation-iteration-count: infinite;
-  animation-duration: 5s;
-  animation-timing-function: 15s;
-
-}
-
-/* The typing effect */
-@keyframes typing {
-  from { width: 0%}
-  to { width:100% }
-}
-      pre {background-color: blanchedalmond;}
-    .button {
-  background-color: #8cf790;
-  border-style: groove;
-  border-radius: 50%;
-  color: rgb(204, 26, 26);
-  padding: 4px 8px;
-  text-align: center;
-  text-decoration: wavy;
-  display: inline-block;
-  font-size: 16px;
-  margin: 2px 1px;
- }
-  
-
    .button2 {
   background-color: #60a8ec;
   border-style: groove;
@@ -46,153 +15,58 @@
   color: rgb(248, 245, 69);
   padding: 4px 8px;
   text-align: center;
-  text-decoration-style: wavy;
   display: inline-block;
   font-size: 16px;
   margin: 2px 1px;
   cursor: pointer;
   }
-
-    b{color: brown;}
-    .chamak{
-        text-align: center;
-        animation-name: dhamak;
-        animation-duration: 2s;
-        animation-iteration-count: infinite;
+  .frontimage{
+      background-image: url("back.jpg");
+      background-repeat: no-repeat;
+      background-size: 100%;
+      height: 800px;
+      margin: -10px;}
+    .msg{text-align:center;
+    font-size:72px;
+    color:rgb(188, 119, 245);
+    margin-top:20%;}
+    .albert{
+        margin-left: 80%;
+        font-size: xx-large;
     }
-    @keyframes dhamak{
-        0%{
-            color: aqua;
+    .quote{position:relative;
+        top:40px;
+        font-size: 40px;
+        height:50px;
+        position:abolute;
+        border-right:  solid #0000ff;
+        overflow: hidden;
+        white-space: nowrap;
+        color: rgb(241, 118, 46);
+        animation: blink .4s linear 0s infinite , typewrite 10s  linear 0s infinite;
+        margin-left: 0%;
+        letter-spacing: .04em;}
+        @keyframes blink {
+            from{ border-right-color: transparent;}
+            to{border-right-color: rgb(11, 12, 12);}
         }
-        25%{
-            color: #8cf790;
+        @keyframes typewrite {
+            from{
+                width:0%;
+        
+            }
+            to{
+                width: 1250px;}
         }
-        50%{color: crimson;}
-        75%{color: darkblue;}
-        100%{color: aqua;}
-    }
-    .head{
-        color: rgb(63, 7, 103);
-        text-align: center;
-    font-size: 60px;
-    font-style: italic;
-    transition: ;
-
-    }
 </style>
-<body style="background-image: url(backimge1.jpg);
-background-repeat: no-repeat;
-background-size: cover;">
-   <a href="/about.html" class="button2">about</a>
-    <a href="/contact.html" class="button2">contact me</a>
-    <div class="head">LEETCODE SOLUTIONS</div>
-    <div class=typewriter>Welcome to the website ,here you can find solution of leetcode questions based on DATA STRUCTURES AND ALGORITHMS.</div>
-<main>
-    <div><h1 class="chamak">SOLUTIONS:</h1></div>
-    <a href="/index.html" class="button">page-1</a>
-    <a href="/page2.html" class="button">page-2</a>
-    <br>
-<b  style="font-size: xx-large;font-style: italic;color: rgb(219, 95, 12);">Q.1-SPIRAL-ORDER</b>
-<br>
-<pre  style="font-size: x-large;">def rotate(matrix: List[List[int]]) -> None:
-    nmatrix=[]
-    columns=len(matrix[0])
-    rows=len(matrix)
-    for i in range(columns):
-        mlist=[]
-        for j in range(rows):
-            mlist.append(matrix[j][columns-1-i])
-        nmatrix.append(mlist)
-    matrix.clear()
-    for i in range(columns):
-        matrix.append(nmatrix[i])
-class Solution:
-    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
-        res = []
-        while len(matrix)>0 and len(matrix[0])>0:
-            for i in range(len(matrix[0])):
-                res.append(matrix[0][i])
-            matrix.remove(matrix[0])
-            if len(matrix)!=0:
-                rotate(matrix)
-        return res</pre>
-<b style="font-size: xx-large;font-style: italic;color: rgb(219, 95, 12);">Q.2-NEXT-GREATER-ELEMENT</b>
-<br>
-<pre  style="font-size: x-large;">class Solution:
-    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        mlist=[]
-        for i in range(len(nums1)):
-            for j in range(nums2.index(nums1[i]),len(nums2)):
-                if nums2[j]<=nums1[i] and j!=len(nums2)-1:
-                    continue
-                elif nums2[j]<=nums1[i] and j==len(nums2)-1:
-                    mlist.append(-1)
-                else:
-                    mlist.append(nums2[j])
-                    break
-        return mlist  </pre>       
-<b style="font-size: xx-large;font-style: italic;color:rgb(219, 95, 12);">Q.3-TRAIPING-RAIN-WATER</b>
-<br>
-<pre style="font-size: x-large;">class Solution:
-    def trap(self, height: List[int]) -> List[int]:
-        temp=[]
-        sumtemp=0
-        if len(height)>1:
-            for i in range(len(height)):
-                temp.append(height[i])
-                sumtemp+=height[i]
-            first=height[0]
-            last=height[len(height)-1]
-            max1=height.index(max(height))
-            for i in range(1,max1):
-                if height[i]<first :
-                    height[i]=first
-                elif height[i]>=first: 
-                    first=height[i] 
-            for i in range(len(height)-2,max1-1,-1):
-                if height[i]<last :
-                    height[i]=last
-                elif height[i]>=last: 
-                    last=height[i]                
-            sumheight=0            
-            for i in range(len(height)):
-                sumheight+=height[i]       
-            return sumheight-sumtemp
-        else:
-            return 0</pre>  
-<b style="font-size: xx-large;font-style: italic;color: rgb(219, 95, 12);">Q.4-PRODUCT-EXCEPT-SHELF</b>
-<br>
-<pre style="font-size: x-large;">class Solution:
-    def productExceptSelf(self, nums: List[int]) -> List[int]:
-        product=1
-        mult=1
-        vishnu=[]
-        for i in range(len(nums)):                                
-            product*=nums[i]    
-        for j in range(len(nums)):
-            if nums[j]!=0:
-                vishnu.append(int(product/nums[j]))
-            if nums[j]==0:
-                for k in range(0,j):
-                    mult*=nums[k]
-                for k in range(j+1,len(nums)):
-                    mult*=nums[k]
-                vishnu.append(int(mult))        
-        return vishnu</pre> 
-<b style="font-size: xx-large;font-style: italic;color:rgb(219, 95, 12);">Q.5-ROTATE-IMAGE</b>
-<br>
-<pre style="font-size: x-large;">class Solution:
-    def rotate(self, matrix: List[List[int]]) -> None:
-        nmatrix=[]
-        n=len(matrix[0])
-        for i in range(n):
-            mlist=[]
-            for j in range(n):
-                mlist.append(matrix[n-1-j][i])
-            nmatrix.append(mlist)
-        matrix.clear()
-        for i in range(n):
-            matrix.append(nmatrix[i])</pre>     
-</main>            
+<body>
+    <div class="frontimage" >
+    <a href="/about.html" class="button2">about</a>
+    <a href="/contact.html" class="button2">contact me</a>  
+    <div class="quote">“Try not to become a man of success. Rather become a man of value.”</div>
+    <span class="albert"> ― Albert Einstein</span>
+    <div class="msg">Website In Progress</div>         
+</div>
+  
 </body>
 </html>
