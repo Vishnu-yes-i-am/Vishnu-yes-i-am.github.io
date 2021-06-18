@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .key{
+            width: 60px;
+            height: 60px;
+            position: relative;
+            display: flex;
+            border-radius: 10px;
+            background-color: cadetblue;
+            display: inline-block;
+            border: inherit;
+            /* border-width: 4px; */
+            box-shadow:4px,rgb(53, 23, 219) ;
+            font-size: 45px;
+            text-align: center;
+            margin: 1px;
+            cursor: pointer;
+        }
+         .key:active{
+              /* background-color: rgb(35, 60, 61); */
+              width: 57px;
+              height:57px;
+            }
+        .key:hover{
+            box-shadow: 0px 0px 20px black;
+        }
+        
+        #display{
+            background-color: blanchedalmond;
+            width: 256px;
+            height: 50px;
+            overflow: hidden ;
+            border: solid grey;
+            font-size:xx-large;
+            text-align: right;
+            margin: 2px;
+        }
+        .box{
+        padding: 5px;
+        border-width: 3px;
+        border-radius: 9px;
+        box-shadow: 2px  2px 25px black;
+        position: relative;;
+        width: fit-content;
+        background-color: rgb(233, 158, 97);
+        position: relative;
+        left: 500px;top: 200px;}
+    </style>
+    
+    <script>
+        var value="";
+        var num=[];
+        var oper=[];
+        var priority=[".","/","x","-","+"];
+        function fnc(val){
+            if(val=="CE"){
+                value="";
+                num=[];
+                oper=[];  
+                priority=[".","/","x","-","+"];  
+                document.getElementById("display").innerHTML=value;}
+            else if (val=="<"){
+                var value2=value.split("");
+                value2.pop();
+                value=value2.join('');
+                document.getElementById("display").innerHTML=value;
+            }
+            else if(val=="="){
+                value=value+val;
+                s=value.split("")
+                a=0;
+                for (let i = 0; i < s.length; i++) {
+                    if (s[i]=="."||s[i]=="+"||s[i]=="-"||s[i]=="x"||s[i]=="/"||s[i]=="%"||s[i]=="("||s[i]==")"||s[i]=="="){
+                        num.push(a)
+                        oper.push(s[i])
+                        a=0
+                    }
+                    else{
+                        a=a*10+parseInt(s[i]);
+                   }    
+                }
+                console.log(num);
+                console.log(oper);
+            
+            while(priority.length>0){
+                var found=0;
+                var c=priority[0];
+                for (let j = 0; j< oper.length; j++) {                  
+                    if(oper[j]==c){
+                        found=1;
+                        if (c=="."){
+                        var dot=parseInt(Math.log10(num[j+1]))+1;
+                        num[j]=num[j]+num[j+1]/Math.pow(10,dot);}
+                        if (c=="/"){
+                        num[j]=num[j]/num[j+1];}
+                        else if (c=="x"){
+                        num[j]=num[j]*num[j+1];}
+                        else if (c=="+"){
+                        num[j]=num[j]+num[j+1];}
+                        else if (c=="-"){
+                        num[j]=num[j]-num[j+1];}
+                        num.splice(j+1,1);
+                        oper.splice(j,1);
+                    console.log(num)
+                    console.log(oper)
+                    }
+                }
+            if(found==0){
+                priority.splice(0,1)
+            }
+            }  
+            document.getElementById("display").innerHTML=num[0];
+            value=num[0]
+            num=[]
+            oper=[]
+            priority=[".","/","x","-","+"];
+            }
+            else {
+            value=value+val;
+            document.getElementById("display").innerHTML=value;
+
+           }
+        }
+    </script>  
+    <title>Calculator</title>
+</head>
+<body style="background-color: rgb(70, 194, 167);">
+    <div class="box">
+        <br>
+    <div id="display">0</div>
+    <div style="font-size: 30px; text-align: center;">lallan top</div>
+    <div class="key" onclick="fnc(innerHTML)">(</div>
+    <div class="key" onclick="fnc(innerHTML)">)</div>
+    <div class="key" onclick="fnc('<')">&#8592;</div>
+    <div class="key" onclick="fnc(innerHTML)">CE</div>
+    <br>
+    <div class="key" onclick="fnc(innerHTML)">7</div>
+    <div class="key" onclick="fnc(innerHTML)">8</div>
+    <div class="key" onclick="fnc(innerHTML)">9</div>
+    <div class="key" onclick="fnc(innerHTML)">/</div>
+    <br>
+    <div class="key" onclick="fnc(innerHTML)">4</div>
+    <div class="key" onclick="fnc(innerHTML)">5</div>
+    <div class="key" onclick="fnc(innerHTML)">6</div>
+    <div class="key" onclick="fnc(innerHTML)">x</div>
+    <br>
+    <div class="key" onclick="fnc(innerHTML)">1</div>
+    <div class="key" onclick="fnc(innerHTML)">2</div>
+    <div class="key" onclick="fnc(innerHTML)">3</div>
+    <div class="key" onclick="fnc(innerHTML)">-</div>
+    <br>
+    <div class="key" onclick="fnc(innerHTML)">0</div>
+    <div class="key" onclick="fnc(innerHTML)">.</div>
+    <div class="key" onclick="fnc(innerHTML)">=</div>
+    <div class="key" onclick="fnc(innerHTML)">+</div>
+</div>
+</body>
+</html>
