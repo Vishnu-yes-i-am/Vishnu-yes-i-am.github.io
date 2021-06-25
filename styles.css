@@ -1,3 +1,8 @@
+.ways{
+width:90%;
+margin:5%;
+display:flex;
+height:410px}
 .button2 {
     background-color: #60a8ec;
     border-style: groove;
@@ -52,13 +57,11 @@
                   width: 100%;}
           }
           .block2{
-              margin-left: 1%;
-            width: 31%;
+            width: auto;
             height:400px;
             border-radius: 20px;
             border-style: groove;
             background-color: antiquewhite;
-            display: inline-block;
             text-align: center;
             font-size: 56px;
         }
