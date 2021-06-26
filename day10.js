@@ -8,7 +8,7 @@ var active=true;
 var backcards=document.querySelectorAll('.container');
 backcards.forEach(card => {
     var temp=Math.floor((Math.random() * deck.length));
-    card.querySelector(".card").setAttribute("style","background:url("+deck[temp]+"); background-size: 160px 230px;");
+    card.querySelector(".card").setAttribute("style","background:url("+deck[temp]+"); background-size: 145px 220px;");
     card.setAttribute("id",deck[temp]);
     deck.splice(temp,1);
 });
