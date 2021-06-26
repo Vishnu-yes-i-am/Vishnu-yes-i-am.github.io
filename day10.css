@@ -1,10 +1,10 @@
 .card{ 
     position:absolute; 
-    height: 230px;
-    width:160px;
+    height: 220px;
+    width:1450px;
     backface-visibility: hidden;
     transition:all 0.5s linear;
-    background-size:160px 230px ;
+    background-size:160px 220px ;
 }
 .chances{
     font-size: 40px;
@@ -12,10 +12,10 @@
 }
 .back{
     position:absolute; 
-    height: 230px;
-    width:160px; 
+    height: 220px;
+    width:145px; 
     background:  url("/back.jpg");
-    background-size:160px 230px ;
+    background-size:145px 220px ;
     transition:all 0.5s linear;
     transform-style: preserve-3d;
 }
@@ -28,7 +28,7 @@
 }
 .bigcontainer{
     height: 500px;
-    width: 92%;
+    width: 94%;
     margin:auto;
     max-width: 1100px;
     display: flex;
@@ -42,8 +42,8 @@
 
 } 
 .container{
-    height: 230px;
-    width:160px;
+    height: 220px;
+    width:145px;
     transition: all 0.5s linear;
     perspective: 1000px;
     transform-style: preserve-3d;
