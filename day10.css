@@ -1,7 +1,7 @@
 .card{ 
     position:absolute; 
     height: 220px;
-    width:145px;
+    width:160px;
     backface-visibility: hidden;
     transition:all 0.5s linear;
     background-size:160px 220px ;
@@ -13,9 +13,9 @@
 .back{
     position:absolute; 
     height: 220px;
-    width:145px; 
+    width:160px; 
     background:  url("/back.jpg");
-    background-size:145px 220px ;
+    background-size:160px 220px ;
     transition:all 0.5s linear;
     transform-style: preserve-3d;
 }
@@ -43,7 +43,7 @@
 } 
 .container{
     height: 220px;
-    width:145px;
+    width:160px;
     transition: all 0.5s linear;
     perspective: 1000px;
     transform-style: preserve-3d;
