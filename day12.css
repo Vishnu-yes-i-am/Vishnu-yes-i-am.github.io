@@ -1,0 +1,73 @@
+body{
+    width: 100%;
+}
+.saved{
+    background-color: antiquewhite;
+    width: 100%;
+    min-height: 530px;
+    height:auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.addnote{
+    
+    margin: auto;
+    width: 45%;
+    height: 20%;
+    border: groove grey;
+    border-radius: 10px;
+}
+.add{
+    width: 90px;
+    position: relative;
+    bottom: 0px;
+    text-align: center;
+    border: double rgb(140, 73, 172);
+    border-width: 8px;
+    height: auto;
+    padding: 0px;
+    font-size: 72px;
+    background-color: cornflowerblue;
+    border-radius: 20px;
+    margin: auto;
+    cursor: pointer;
+}
+#addednote{
+    display:flex;
+    
+}
+input{
+    width: 95%;
+    justify-content: center;
+    margin:2%;
+    height: 80px;
+    word-wrap: normal;
+    overflow-wrap: normal;
+    font-size: x-large;
+    border:  double rgb(85, 223, 241);
+}
+p{
+    font-size: x-large;
+    border:solid rgb(86, 102, 63);
+    border-radius: 15px;
+    margin: 10px;
+    width: auto;
+    height: auto;
+    word-wrap: normal;
+    overflow-wrap: break-word;
+    padding: 10px;
+
+}
+.btn{
+    font-size: x-large;
+    border-radius:3px;
+    /* position:relative; */
+    height: auto;
+    width: auto;
+    margin: 5px;
+    cursor:pointer;
+}
+.btn:hover{
+border: double yellow;
+}
