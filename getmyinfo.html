@@ -1,27 +1,3 @@
-<?php
-if(isset($_POST['name'])){
-    $server="127.0.0.1";
-    $username ="vishnu";
-    $password ="mydata@mali";
-    $con = mysqli_connect($server, $username, $password);
-    if(!$con){
-        die("connection to this database failed due to ". mysqli_connect_error());
-    }
-    echo "success connecting to the database";
-    $name = $_POST['name'];
-    $mno = $_POST['mno'];
-    $email = $_POST['email'];
-    $state = $_POST['state'];
-    $sql = "INSERT INTO `hlo`.`hlo` ( `name`, `mno`, `email`, `state`, `date`) VALUES ('$name', '$mno', '$email', '$state',current_timestamp());";
-    if($con->query($sql)== true){
-        echo "success";
-    }
-    else{
-        echo "ERROR: $sql <br> $con->error";
-    }
-    $con->close();
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
