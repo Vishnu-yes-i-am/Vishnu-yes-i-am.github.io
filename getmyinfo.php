@@ -1,8 +1,8 @@
 <?php
 if(isset($_POST['name'])){
-    $server="localhost";
-    $username ="root";
-    $password ="";
+    $server="127.0.0.1";
+    $username ="vishnu";
+    $password ="mydata@mali";
     $con = mysqli_connect($server, $username, $password);
     if(!$con){
         die("connection to this database failed due to ". mysqli_connect_error());
