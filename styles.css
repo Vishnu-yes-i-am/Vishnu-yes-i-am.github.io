@@ -95,50 +95,47 @@
                     left:-50px;
                 }
             }
-            .block3{
-                width: 70%;
-                height:33%;
-                font-family:'TIMES NEW ROMAN';
-                font-weight: 300;
-                border-radius: 25px;
-                color:black;
-                border-style: groove;
-                background: transparent;
-                display: inline-block;
-                text-align: center;
-                margin-left: 250px;
-                font-size: 56px;
-                margin-top: -80px;
-            }
-            .block4{
-                width: 96%;
-                height:auto;
-                margin: auto;
-                margin-top: 40%;
-                border: groove peru;
-                background-color: rgb(109, 107, 105);
-                text-align: center;
-                font-size: xx-large;
-            }
-            .photo{
-                border: solid rgb(151, 56, 100);
-                border-radius: 50%;
-                width: 120px;
-                height:120px;
-                margin:auto;
-            }
-            .intro{
-                    
-                    font-size:xx-large;
-                    color: rgb(67, 87, 62);
-                    text-align: center;
-                    width: 100%;
-                    margin: auto;
-                    }
-            .link{
-                    border: solid black;
-                    border-radius: 25px;
-                    width: 200px;
-                    height: 70px;
-                    background-size: 200px 70px;
-                    }
+.block3{
+    width: 70%;
+    color:black;
+    margin: auto;
+    border: solid black;
+    border-radius: 20px;
+    background: transparent;
+    text-align: center;
+    overflow-wrap: normal;
+    font-size: x-large;
+    
+}
+.block4{
+    width: 96%;
+    height:auto;
+    margin: auto;
+    margin-top: 40%;
+    border: groove peru;
+    background-color: rgb(109, 107, 105);
+    text-align: center;
+    font-size: xx-large;
+}
+.photo{
+    border: solid rgb(151, 56, 100);
+    border-radius: 50%;
+    width: 120px;
+    height:120px;
+    margin:auto;
+}
+.intro{
+        
+        font-size:xx-large;
+        color: rgb(67, 87, 62);
+        text-align: center;
+        width: 100%;
+        margin: auto;
+        }
+.link{
+        border: solid black;
+        border-radius: 25px;
+        width: 200px;
+        height: 70px;
+        background-size: 200px 70px;
+        }
