@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const directoryPath = path.join(__dirname, 'Cards');
+const directoryPath = path.join(__dirname, 'cards');
 fs.readdir(directoryPath, function (err, files) {
     if (err) {
         return console.log('Unable to scan directory: ' + err);
