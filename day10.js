@@ -1,3 +1,14 @@
+const path = require('path');
+const fs = require('fs');
+const directoryPath = path.join(__dirname, 'Cards');
+fs.readdir(directoryPath, function (err, files) {
+    if (err) {
+        return console.log('Unable to scan directory: ' + err);
+    } 
+    files.forEach(function (file) {
+        console.log(file); 
+    });
+});
 var deck=['/cards/AH.jpg','/cards/5D.jpg','/cards/10C.jpg','/cards/7H.jpg','/cards/JD.jpg','/cards/QH.jpg','/cards/AH.jpg','/cards/5D.jpg','/cards/10C.jpg','/cards/7H.jpg','/cards/JD.jpg','/cards/QH.jpg']
 var flippedcards=[];
 var chances=5
