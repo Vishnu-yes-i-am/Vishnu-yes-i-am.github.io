@@ -15,10 +15,12 @@ var open=false;
 var crsr='default';
 var width1=3;
 var draw=false;
+var touchx,touchy,newtouchx,newtouchy;
 var a;
 var x;
 var y;
 var newx;
+var touching;
 var newy;
 function addtext(){
     var s=document.querySelector('.text').value;
@@ -96,8 +98,7 @@ document.querySelector('#pen').addEventListener('click',()=>{
     selectcolor.setAttribute('style','display:none;');}
 })
 function drawstop(event) {
-    newx=event.clientX-canvas.offsetLeft;
-    newy=event.clientY-canvas.offsetTop+23;
+    touching=false;
     if(stdraw==true){
         ctx.beginPath();
         ctx.lineWidth=width1;
@@ -139,7 +140,45 @@ function colorchange(clr){
 }
 
 canvas.addEventListener("mousedown", getClickPosition, false);
-canvas.addEventListener("touchstart", getClickPosition, false);
+canvas.addEventListener("touchstart", (ejj)=>{
+    touching=true
+    if(open==true){
+        open=false; 
+       document.querySelector('.fathercolor').removeAttribute('style');
+    selectcolor.removeAttribute('style');
+    selectcolor.setAttribute('style','display:none;');
+    }
+    x = ejj.touches[0].clientX-canvas.offsetLeft;
+    y = ejj.touches[0].clientY-canvas.offsetTop;
+    snapshots.push(canvas.toDataURL());
+    sl+=1;
+    draw=true;
+    console.log("touching",x,y);
+    canvas.addEventListener("touchend",drawstop,false );
+    canvas.addEventListener("touchmove",(ejj2)=>{
+        
+        if(draw==true){
+            if(stdraw==false &&circledraw==false){
+            console.log("drawing",draw);
+            ctx.beginPath();
+            ctx.lineWidth=width1;
+            ctx.lineCap = type;
+            ctx.strokeStyle=color;
+            console.log("drawing");
+            ctx.moveTo(x,y);
+            ctx.lineTo((ejj2.touches[0].clientX-canvas.offsetLeft),(ejj2.touches[0].clientY-canvas.offsetTop));
+            ctx.stroke();
+            x=ejj2.touches[0].clientX-canvas.offsetLeft;
+            y=ejj2.touches[0].clientY-canvas.offsetTop;}
+        else{
+            newx=ejj2.touches[0].clientX-canvas.offsetLeft;
+            newy=ejj2.touches[0].clientY-canvas.offsetTop;
+        }
+        }
+
+    },false);
+    
+}, false);
 function getClickPosition(e) {
     if(open==true){
         open=false; 
@@ -154,9 +193,8 @@ function getClickPosition(e) {
     snapshots.push(canvas.toDataURL());
     sl+=1;
     canvas.addEventListener("mouseup",drawstop,false);
-    canvas.addEventListener("touchend",drawstop,false);  
     canvas.addEventListener("mousemove",drawstart,false );
-    canvas.addEventListener("touchmove",drawstart,false );    
+    
 }
 function drawstart(event) {
     if(draw==true){
@@ -165,11 +203,16 @@ function drawstart(event) {
     ctx.lineWidth=width1;
     ctx.lineCap = type;
     ctx.strokeStyle=color;
+    console.log("drawing");
     ctx.moveTo(x,y);
-    ctx.lineTo((event.clientX-canvas.offsetLeft),(event.clientY-canvas.offsetTop+23));
+    ctx.lineTo((event.clientX-canvas.offsetLeft),(event.clientY-canvas.offsetTop));
     ctx.stroke();
     x=event.clientX-canvas.offsetLeft;
-    y=event.clientY-canvas.offsetTop+23;
+    y=event.clientY-canvas.offsetTop;
+}
+else{
+    newx=event.clientX-canvas.offsetLeft;
+    newy=event.clientY-canvas.offsetTop;
 }
 }
 
