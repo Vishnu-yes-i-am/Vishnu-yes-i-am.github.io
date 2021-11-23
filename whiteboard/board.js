@@ -188,7 +188,7 @@ function getClickPosition(e) {
     }
     draw=true
     x = e.clientX-canvas.offsetLeft;
-    y = e.clientY-canvas.offsetTop+23;
+    y = e.clientY-canvas.offsetTop;
     // if (sl < snapshots.length) { snapshots.length = sl; }
     snapshots.push(canvas.toDataURL());
     sl+=1;
