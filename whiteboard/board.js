@@ -40,7 +40,7 @@ function text(){
     document.querySelector('.definetext').setAttribute('style','display:flex;');
 }}
 function stldraw(){
-    canvas.setAttribute('style','cursor:'+'url("https://icons.iconarchive.com/icons/designcontest/vintage/32/Patent-Pen-icon.png"),default;');
+    canvas.setAttribute('style','cursor:'+'crosshair');
     if(stdraw==false){
         document.querySelector('#stline').setAttribute('style','background-image: url(Ruler.ico);border:solid green;');
         stdraw=true;}
