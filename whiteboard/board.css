@@ -1,7 +1,7 @@
 canvas{
     border: solid rgb(240, 100, 7);
     border-width: 10px;
-    cursor:default;
+    cursor:cross-hair;
 }
 cursor{
     position: relative;
