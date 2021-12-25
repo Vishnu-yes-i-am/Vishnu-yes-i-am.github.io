@@ -49,7 +49,7 @@ function stldraw(){
         stdraw=false;
     }}
     function cirdraw(){
-        canvas.setAttribute('style','cursor:'+'url("https://icons.iconarchive.com/icons/designcontest/vintage/32/Patent-Pen-icon.png"),default;');
+        canvas.setAttribute('style','cursor:cross-hair;');
         if(circledraw==false){
             document.querySelector('#circle').setAttribute('style','background-image: url(circle.png); border:solid green;');
             circledraw=true;}
@@ -132,7 +132,7 @@ function colorchange(clr){
     else{
         penwidth=document.querySelector('input').value;
         width1=penwidth;
-        canvas.setAttribute('style','cursor:'+'url("https://icons.iconarchive.com/icons/designcontest/vintage/32/Patent-Pen-icon.png"),default;');
+        canvas.setAttribute('style','cursor:crosshair;');
     }
     if(width1>4){
         type='round';
