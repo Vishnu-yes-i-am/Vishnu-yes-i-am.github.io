@@ -5,6 +5,19 @@ ctx.canvas.width = window.innerWidth-50;
 ctx.canvas.height = window.innerHeight-100;
 var penwidth=document.querySelector('#penwidth').value;
 var selectcolor=document.querySelector('.selectcolor');
+
+
+
+function preventScroll(e){
+    e.preventDefault();
+    e.stopPropagation();
+
+    return false;
+}
+
+canvas.addEventListener('wheel', preventScroll);
+
+
 var snapshots = new Array();
 var sl=-1;
 stdraw=false;
@@ -81,7 +94,6 @@ function redo(){
             //  console.log("drawn");
         }}
 function clearboard(){
-    console.log('clearing');
     ctx.clearRect(0, 0, canvas.width, canvas.height);   
         }
 document.querySelector('#pen').addEventListener('click',()=>{
@@ -104,13 +116,10 @@ function drawstop(event) {
         ctx.lineWidth=width1;
         ctx.lineCap = type;
         ctx.strokeStyle=color;
-        console.log(x,y,newx,newy);
         ctx.moveTo(x,y); 
         ctx.lineTo(newx,newy);
         ctx.stroke();}
     if(circledraw==true){
-        console.log(color);
-        console.log(x,y,newx,newy);
         ctx.strokeStyle=color;
         ctx.beginPath();
         ctx.arc(x,y,Math.sqrt((x-newx)*(x-newx)+(y-newy)*(y-newy)),0,(Math.PI)*2);
@@ -153,7 +162,6 @@ canvas.addEventListener("touchstart", (ejj)=>{
     snapshots.push(canvas.toDataURL());
     sl+=1;
     draw=true;
-    console.log("touching",x,y);
     canvas.addEventListener("touchend",drawstop,false );
     canvas.addEventListener("touchmove",(ejj2)=>{
         
@@ -164,7 +172,6 @@ canvas.addEventListener("touchstart", (ejj)=>{
             ctx.lineWidth=width1;
             ctx.lineCap = type;
             ctx.strokeStyle=color;
-            console.log("drawing");
             ctx.moveTo(x,y);
             ctx.lineTo((ejj2.touches[0].clientX-canvas.offsetLeft),(ejj2.touches[0].clientY-canvas.offsetTop));
             ctx.stroke();
@@ -203,7 +210,6 @@ function drawstart(event) {
     ctx.lineWidth=width1;
     ctx.lineCap = type;
     ctx.strokeStyle=color;
-    console.log("drawing");
     ctx.moveTo(x,y);
     ctx.lineTo((event.clientX-canvas.offsetLeft),(event.clientY-canvas.offsetTop));
     ctx.stroke();
