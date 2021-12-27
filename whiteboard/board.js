@@ -194,8 +194,8 @@ function getClickPosition(e) {
     selectcolor.setAttribute('style','display:none;');
     }
     draw=true
-    x = e.clientX-canvas.offsetLeft;
-    y = e.clientY-canvas.offsetTop;
+    x = e.clientX-canvas.offsetLeft-14;
+    y = e.clientY-canvas.offsetTop-16;
     // if (sl < snapshots.length) { snapshots.length = sl; }
     snapshots.push(canvas.toDataURL());
     sl+=1;
@@ -211,14 +211,14 @@ function drawstart(event) {
     ctx.lineCap = type;
     ctx.strokeStyle=color;
     ctx.moveTo(x,y);
-    ctx.lineTo((event.clientX-canvas.offsetLeft),(event.clientY-canvas.offsetTop));
+    ctx.lineTo((event.clientX-canvas.offsetLeft-16),(event.clientY-canvas.offsetTop-16));
     ctx.stroke();
-    x=event.clientX-canvas.offsetLeft;
-    y=event.clientY-canvas.offsetTop;
+    x=event.clientX-canvas.offsetLeft-16;
+    y=event.clientY-canvas.offsetTop-16;
 }
 else{
-    newx=event.clientX-canvas.offsetLeft;
-    newy=event.clientY-canvas.offsetTop;
+    newx=event.clientX-canvas.offsetLeft-16;
+    newy=event.clientY-canvas.offsetTop-16;
 }
 }
 
